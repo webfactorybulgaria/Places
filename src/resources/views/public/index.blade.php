@@ -3,7 +3,7 @@
 @section('bodyClass', 'body-places body-places-index body-page body-page-' . $page->id)
 
 @section('js')
-    <script src="{{ asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.config('app.locale')) }}"></script>
+    <script src="{{ asset('//maps.googleapis.com/maps/api/js?language='.config('app.locale')) }}"></script>
     <script src="{{ asset('js/public/gmaps.js') }}"></script>
 @stop
 
@@ -21,7 +21,7 @@
             <form method="get" role="form">
                 <label for="string" class="sr-only">@lang('places::global.Search')</label>
                 <div class="input-group input-group-lg">
-                    <input id="string" type="text" name="string" value="{{ Input::get('string') }}" class="form-control input-sm">
+                    <input id="string" type="text" name="string" value="{{ Request::input('string') }}" class="form-control input-sm">
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-sm btn-primary">@lang('places::global.Search')</button>
                     </span>
@@ -30,8 +30,8 @@
 
             <h3>
             {{ $models->count() }} @choice('places::global.places', $models->count())
-            @if(Input::get('string')) @lang('for')
-                “{{ Input::get('string') }}”
+            @if(Request::input('string')) @lang('for')
+                “{{ Request::input('string') }}”
             @endif
             </h3>
 

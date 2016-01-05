@@ -3,11 +3,11 @@
 @section('title', $model->title . ' – ' . trans('news::global.name') . ' – ' . $websiteTitle)
 @section('ogTitle', $model->title)
 @section('description', $model->summary)
-@section('image', $model->present()->thumbAbsoluteSrc())
+@section('image', $model->present()->thumbUrl())
 @section('bodyClass', 'body-places body-place-' . $model->id . ' body-page body-page-' . $page->id)
 
 @section('js')
-    <script src="{{ asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.config('app.locale')) }}"></script>
+    <script src="{{ asset('//maps.googleapis.com/maps/api/js?language='.config('app.locale')) }}"></script>
     <script src="{{ asset('js/public/gmaps.js') }}"></script>
 @stop
 

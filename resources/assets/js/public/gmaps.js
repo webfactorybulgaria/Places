@@ -45,15 +45,7 @@ if (jQuery('#map').length) {
         infoWindow.close();
     });
 
-
-    var apiUrl = '/api/places',
-        placeId = $('#place').data('id');
-    if (placeId) {
-        apiUrl = apiUrl + '/' + placeId;
-    }
-    apiUrl = apiUrl + '?locale=' + $('html').attr('lang');
-
-    jQuery.getJSON(apiUrl + location.search, function (data) {
+    jQuery.getJSON(location.search, function (data) {
         'use strict';
         var i = 0,
             coords = [];
@@ -88,20 +80,20 @@ if (jQuery('#map').length) {
     });
 
     // Search Postcode
-    $('#search-cp button').click(function () {
+    $('#search-nearest button').click(function () {
         'use strict';
 
-        var cp = $('#search-cp input').val(),
+        var address = $('#search-nearest input').val(),
             geocoder;
 
-        if (!cp.length) {
+        if (!address.length) {
             return false;
         }
 
         geocoder = new google.maps.Geocoder();
         geocoder.geocode(
             {
-                address: cp + ' Belgique'
+                address: address
             },
             function (results_array) {
                 var p = results_array[0].geometry.location,
