@@ -1,6 +1,6 @@
 @extends('core::public.master')
 
-@section('title', $model->title . ' – ' . trans('news::global.name') . ' – ' . $websiteTitle)
+@section('title', $model->title . ' – ' . trans('places::global.name') . ' – ' . $websiteTitle)
 @section('ogTitle', $model->title)
 @section('description', $model->summary)
 @section('image', $model->present()->thumbUrl())
@@ -9,7 +9,7 @@
 @section('js')
     <script src="{{ asset('//maps.googleapis.com/maps/api/js?language='.config('app.locale')) }}"></script>
     <script src="{{ asset('js/public/gmaps.js') }}"></script>
-@stop
+@endsection
 
 @section('main')
 
@@ -48,4 +48,4 @@
         </div>
     </div>
 
-@stop
+@endsection
