@@ -10,7 +10,7 @@ class PublicController extends BasePublicController
 {
     public function __construct(PlaceInterface $place)
     {
-        parent::__construct($place);
+        parent::__construct($place, 'places');
     }
 
     /**
