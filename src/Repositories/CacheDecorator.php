@@ -25,7 +25,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      *
      * @return stdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = ['translations'], $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = [], $all = false)
     {
         $cacheKey = md5(config('app.locale').'byPage.'.$page.$limit.$all.serialize(Request::except('page')));
 
@@ -49,7 +49,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      *
      * @return Collection
      */
-    public function all(array $with = ['translations'], $all = false)
+    public function all(array $with = [], $all = false)
     {
         $cacheKey = md5(config('app.locale').'all'.$all.serialize($with).serialize(Request::all()));
 
@@ -57,7 +57,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
             return $this->cache->get($cacheKey);
         }
 
-        $models = $this->repo->all(['translations'], $all);
+        $models = $this->repo->all($with, $all);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);

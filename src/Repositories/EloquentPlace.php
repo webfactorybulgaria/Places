@@ -16,49 +16,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
     }
 
     /**
-     * Get paginated models.
-     *
-     * @param int  $page  Number of models per page
-     * @param int  $limit Results per page
-     * @param bool $all   Show published or all
-     *
-     * @return stdClass Object with $items && $totalItems for pagination
-     */
-    public function byPage($page = 1, $limit = 10, array $with = [], $all = false)
-    {
-        $result = new stdClass();
-        $result->page = $page;
-        $result->limit = $limit;
-        $result->totalItems = 0;
-        $result->items = [];
-
-        $query = $this->make($with)
-            ->select('places.*', 'status', 'title')
-            ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
-            ->where('locale', config('app.locale'))
-            ->skip($limit * ($page - 1))
-            ->take($limit);
-
-        if (!$all) {
-            $query->online();
-        }
-        $query->order();
-        $models = $query->get();
-
-        // Build query to get totalItems
-        $queryTotal = $this->model;
-        if (!$all) {
-            $queryTotal->online();
-        }
-
-        // Put items and totalItems in stdClass
-        $result->totalItems = $queryTotal->count();
-        $result->items = $models->all();
-
-        return $result;
-    }
-
-    /**
      * Get all models.
      *
      * @param bool  $all  Show published or all
@@ -71,10 +28,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         // get search string
         $string = Request::input('string');
 
-        $query = $this->make($with)
-            ->select('places.*', 'status', 'title')
-            ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
-            ->where('locale', config('app.locale'));
+        $query = $this->make($with);
 
         if (!$all) {
             $query->online();

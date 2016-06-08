@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Places\Models;
 
-use Dimsav\Translatable\Translatable;
 use Laracasts\Presenter\PresentableTrait;
 use TypiCMS\Modules\Core\Models\Base;
+use TypiCMS\Modules\Core\Traits\Translatable;
 use TypiCMS\Modules\History\Traits\Historable;
 
 class Place extends Base
@@ -45,5 +45,5 @@ class Place extends Base
         'status',
     ];
 
-    protected $appends = ['status', 'title', 'thumb'];
+    protected $appends = ['thumb'];
 }

@@ -17,7 +17,7 @@ interface PlaceInterface extends RepositoryInterface
      *
      * @return stdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = ['translations'], $all = false);
+    public function byPage($page = 1, $limit = 10, array $with = [], $all = false);
 
     /**
      * Get all models.
@@ -27,5 +27,5 @@ interface PlaceInterface extends RepositoryInterface
      *
      * @return Collection
      */
-    public function all(array $with = ['translations'], $all = false);
+    public function all(array $with = [], $all = false);
 }

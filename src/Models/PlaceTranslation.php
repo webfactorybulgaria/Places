@@ -11,6 +11,6 @@ class PlaceTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Places\Models\Place', 'place_id');
+        return $this->belongsTo('TypiCMS\Modules\Places\Models\Place', 'place_id')->withoutGlobalScopes();
     }
 }
