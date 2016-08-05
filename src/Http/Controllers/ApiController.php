@@ -3,9 +3,9 @@
 namespace TypiCMS\Modules\Places\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
-use TypiCMS\Modules\Places\Models\Place;
-use TypiCMS\Modules\Places\Repositories\PlaceInterface as Repository;
+use TypiCMS\Modules\Core\Custom\Http\Controllers\BaseApiController;
+use TypiCMS\Modules\Places\Custom\Models\Place;
+use TypiCMS\Modules\Places\Custom\Repositories\PlaceInterface as Repository;
 
 class ApiController extends BaseApiController
 {
@@ -49,7 +49,7 @@ class ApiController extends BaseApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param \TypiCMS\Modules\Places\Models\Place $place
+     * @param \TypiCMS\Modules\Places\Custom\Models\Place $place
      *
      * @return \Illuminate\Http\JsonResponse
      */

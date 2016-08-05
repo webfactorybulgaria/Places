@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Places\Http\Controllers;
 
-use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Places\Http\Requests\FormRequest;
-use TypiCMS\Modules\Places\Models\Place;
-use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+use TypiCMS\Modules\Core\Custom\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Places\Custom\Http\Requests\FormRequest;
+use TypiCMS\Modules\Places\Custom\Models\Place;
+use TypiCMS\Modules\Places\Custom\Repositories\PlaceInterface;
 
 class AdminController extends BaseAdminController
 {
@@ -40,7 +40,7 @@ class AdminController extends BaseAdminController
     /**
      * Edit form for the specified resource.
      *
-     * @param \TypiCMS\Modules\Places\Models\Place $place
+     * @param \TypiCMS\Modules\Places\Custom\Models\Place $place
      *
      * @return \Illuminate\View\View
      */
@@ -53,7 +53,7 @@ class AdminController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \TypiCMS\Modules\Places\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Places\Custom\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -67,8 +67,8 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \TypiCMS\Modules\Places\Models\Place              $place
-     * @param \TypiCMS\Modules\Places\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Places\Custom\Models\Place              $place
+     * @param \TypiCMS\Modules\Places\Custom\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
