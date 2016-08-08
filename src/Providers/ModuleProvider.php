@@ -5,14 +5,14 @@ namespace TypiCMS\Modules\Places\Providers;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use TypiCMS\Modules\Core\Custom\Facades\TypiCMS;
-use TypiCMS\Modules\Core\Custom\Observers\FileObserver;
-use TypiCMS\Modules\Core\Custom\Observers\SlugObserver;
-use TypiCMS\Modules\Core\Custom\Services\Cache\LaravelCache;
-use TypiCMS\Modules\Places\Custom\Models\Place;
-use TypiCMS\Modules\Places\Custom\Models\PlaceTranslation;
-use TypiCMS\Modules\Places\Custom\Repositories\CacheDecorator;
-use TypiCMS\Modules\Places\Custom\Repositories\EloquentPlace;
+use TypiCMS\Modules\Core\Shells\Facades\TypiCMS;
+use TypiCMS\Modules\Core\Shells\Observers\FileObserver;
+use TypiCMS\Modules\Core\Shells\Observers\SlugObserver;
+use TypiCMS\Modules\Core\Shells\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Places\Shells\Models\Place;
+use TypiCMS\Modules\Places\Shells\Models\PlaceTranslation;
+use TypiCMS\Modules\Places\Shells\Repositories\CacheDecorator;
+use TypiCMS\Modules\Places\Shells\Repositories\EloquentPlace;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -40,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         AliasLoader::getInstance()->alias(
             'Places',
-            'TypiCMS\Modules\Places\Custom\Facades\Facade'
+            'TypiCMS\Modules\Places\Shells\Facades\Facade'
         );
 
         // Observers
@@ -55,12 +55,12 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Places\Custom\Providers\RouteServiceProvider');
+        $app->register('TypiCMS\Modules\Places\Shells\Providers\RouteServiceProvider');
 
         /*
          * Sidebar view composer
          */
-        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Places\Custom\Composers\SidebarViewComposer');
+        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Places\Shells\Composers\SidebarViewComposer');
 
         /*
          * Add the page in the view.
@@ -69,7 +69,7 @@ class ModuleProvider extends ServiceProvider
             $view->page = TypiCMS::getPageLinkedToModule('places');
         });
 
-        $app->bind('TypiCMS\Modules\Places\Custom\Repositories\PlaceInterface', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Places\Shells\Repositories\PlaceInterface', function (Application $app) {
             $repository = new EloquentPlace(new Place());
             if (!config('typicms.cache')) {
                 return $repository;

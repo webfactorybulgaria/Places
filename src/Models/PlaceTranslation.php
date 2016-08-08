@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Places\Models;
 
-use TypiCMS\Modules\Core\Custom\Models\BaseTranslation;
+use TypiCMS\Modules\Core\Shells\Models\BaseTranslation;
 
 class PlaceTranslation extends BaseTranslation
 {
@@ -11,6 +11,6 @@ class PlaceTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Places\Custom\Models\Place', 'place_id')->withoutGlobalScopes();
+        return $this->belongsTo('TypiCMS\Modules\Places\Shells\Models\Place', 'place_id')->withoutGlobalScopes();
     }
 }

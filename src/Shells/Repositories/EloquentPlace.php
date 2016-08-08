@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Places\Custom\Repositories;
+namespace TypiCMS\Modules\Places\Shells\Repositories;
 
 use TypiCMS\Modules\Places\Repositories\EloquentPlace as Base;
 
