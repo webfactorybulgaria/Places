@@ -3,9 +3,9 @@
 namespace TypiCMS\Modules\Places\Models;
 
 use Laracasts\Presenter\PresentableTrait;
-use TypiCMS\Modules\Core\Models\Base;
-use TypiCMS\Modules\Core\Traits\Translatable;
-use TypiCMS\Modules\History\Traits\Historable;
+use TypiCMS\Modules\Core\Shells\Models\Base;
+use TypiCMS\Modules\Core\Shells\Traits\Translatable;
+use TypiCMS\Modules\History\Shells\Traits\Historable;
 
 class Place extends Base
 {
@@ -13,7 +13,7 @@ class Place extends Base
     use Translatable;
     use PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Places\Presenters\ModulePresenter';
+    protected $presenter = 'TypiCMS\Modules\Places\Shells\Presenters\ModulePresenter';
 
     protected $fillable = [
         'address',

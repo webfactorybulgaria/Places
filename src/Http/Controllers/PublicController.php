@@ -3,8 +3,8 @@
 namespace TypiCMS\Modules\Places\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
-use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BasePublicController;
+use TypiCMS\Modules\Places\Shells\Repositories\PlaceInterface;
 
 class PublicController extends BasePublicController
 {
