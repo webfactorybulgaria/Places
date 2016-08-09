@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Places\Shells\Http\Requests;
 
-use TypiCMS\Modules\Places\Http\Requests\FormRequest as Base;
+use TypiCMS\Modules\Places\Http\Requests\FormRequest as BaseClass;
 
-class FormRequest extends Base
+class FormRequest extends BaseClass
 {
 
 }

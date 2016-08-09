@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Places\Shells\Repositories;
 
-use TypiCMS\Modules\Places\Repositories\EloquentPlace as Base;
+use TypiCMS\Modules\Places\Repositories\EloquentPlace as BaseClass;
 
-class EloquentPlace extends Base implements PlaceInterface
+class EloquentPlace extends BaseClass implements PlaceInterface
 {
 
 }

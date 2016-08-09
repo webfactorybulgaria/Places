@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Places\Shells\Repositories;
 
-use TypiCMS\Modules\Places\Repositories\PlaceInterface as Base;
+use TypiCMS\Modules\Places\Repositories\PlaceInterface as BaseInterface;
 
-interface PlaceInterface extends Base
+interface PlaceInterface extends BaseInterface
 {
 
 }
