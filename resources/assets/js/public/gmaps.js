@@ -45,7 +45,7 @@ if (jQuery('#map').length) {
         infoWindow.close();
     });
 
-    jQuery.getJSON(location.search, function (data) {
+    jQuery.getJSON(location.search + '?json', function (data) {
         'use strict';
         var i = 0,
             coords = [];
